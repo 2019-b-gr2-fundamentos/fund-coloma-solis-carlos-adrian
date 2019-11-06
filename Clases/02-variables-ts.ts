@@ -3,7 +3,7 @@
 //var edad: integer = 30; -> kotlin Mutable
 //val edad: integer = 30; -> kotlin 
 //const IVA = 30;
-let sueldo = 0;
+//tsc let sueldo = 0;
 //IVA = 14; // no esta permitido 
 // Variables Primitivas
 /*const numero = 10
@@ -25,6 +25,7 @@ console.log(typeof fecha);*/
 // npm -> yarn
 //EXPONENCIAL
 //1^2
+let resultado = 0;
 resultado = 4%2; //0
 resultado = 4 %3 // 1
 console.log("pera" + 2);

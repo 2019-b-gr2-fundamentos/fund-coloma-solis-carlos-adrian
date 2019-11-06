@@ -1,6 +1,7 @@
-const peso = Number(prompt("Inserte su peso en kg"));
+// Indice de Masa Corporal 
+const peso = Number(prompt("Inserte su peso en kg")); 
 const estatura = Number(prompt("Inserte su estatura en metros"));
-const IMC = peso/(estatura*estatura)
+const IMC = peso/(estatura*estatura) //Formula del indice de masa corporal
 if (IMC < 18.5){
     console.log("Tienes un peso inferior a lo normal")
 }
