@@ -9,7 +9,7 @@ const arreglo = []
 const tamanio = 8
 const zeros = []
 // 0 significa que no tiene floron y uno signifia que si tiene el floron
-for (let contador = 0;
+/*for (let contador = 0;
     contador < tamanio;
     contador++){
         zeros.push(0)
@@ -27,4 +27,7 @@ if (arreglo[posicion] == 1){
 } else{
     console.log("No acertaste :(")
 }        
-console.log(arreglo)        
+console.log(arreglo)  */
+const Apos = Math.floor(Math.random()*(tamanio + 1));
+console.log(Apos)
+
