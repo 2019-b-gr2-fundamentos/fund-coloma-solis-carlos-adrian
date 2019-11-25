@@ -15,3 +15,11 @@ if(true){ // Bloque 1
     console.log("7 años de carcel")
     console.log("7 años de cárcel")
 }
+let arregloFloron = [0,0,0,0,1];// Bloque 1
+
+for (let i=0; i<5; i++){ // Bloque 2
+    let existeFloron = false;
+    if(arregloFloron[i] == 1){
+        existeFloron = true;
+    }
+    arregloFloron[i]

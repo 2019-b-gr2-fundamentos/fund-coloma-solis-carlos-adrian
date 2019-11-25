@@ -29,5 +29,5 @@ if (arreglo[posicion] == 1){
 }        
 console.log(arreglo)  */
 const Apos = Math.floor(Math.random()*(tamanio + 1));
-console.log(Apos)
+
 

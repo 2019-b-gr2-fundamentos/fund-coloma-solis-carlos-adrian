@@ -43,11 +43,9 @@ for (let contador = 0;
     ){
         console.log(arregloNumeros[contador])
     }
-/* 1) Crear arreglo 5 elementos
-2) Cada elemento 1 o un 0
-Ej: [0,0,1,1,0]
-3) Exista al menos un elemento "1"
-Ej: [0,0,0,0,0] NO ES VALIDO
-[0,0,0,0,1] ES VALIDO
-*/
-console.log(Math.floor(Math.random()*2))
+// Seudocódigo Juego del Floron
+/* 
+1) Definir # jugadores
+2) Asignar randomicamente si tiene o no un floron 
+3) Verificar si al menos existe un floron
+4) Adivinar donde esta el floron 
