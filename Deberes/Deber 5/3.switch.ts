@@ -1,4 +1,4 @@
-// Movimiento parabolico
+ // Movimiento parabolico
 const Vo = Number(prompt("Inserte la velocidad inicial en m/s"));
 const angulo = Number(prompt("Inserte el angulo de lanzamiento en grados"));
 const eleccion = prompt("¿Desea obtener la distancia o altura maxima?");
