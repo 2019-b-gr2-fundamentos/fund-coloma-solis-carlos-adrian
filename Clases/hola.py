@@ -1,3 +1,6 @@
-X = [1,2,3,4,5]
-print(X[1])             
-        
+x = 1
+print(type(x))
+if str(type(x)) == "<class 'str'>":
+    print("Funciono")
+else:
+    print("No funciono")

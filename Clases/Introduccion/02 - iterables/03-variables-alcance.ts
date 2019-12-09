@@ -21,5 +21,5 @@ for (let i=0; i<5; i++){ // Bloque 2
     let existeFloron = false;
     if(arregloFloron[i] == 1){
         existeFloron = true;
-    }
-    arregloFloron[i]
+    /* }
+    arregloFloron[i]*/
