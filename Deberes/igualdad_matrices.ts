@@ -1,6 +1,7 @@
 const matriz1 = [
     [1, 2, 3],
     [4, 5, 6],
+    [7, 5, 9]
 ]
 const matriz2 = [
     [1, 2, 3],
@@ -20,10 +21,11 @@ if (m1 == m2 && n1 == n2){
                 iguales = true
             } else{
                 iguales = false
+                break
             }
          } 
          j++
-    }while(j <= m1 -1)
+    }while(j <= m1 -1 && iguales == true)
     
     console.log(iguales)
 }else{
