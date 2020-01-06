@@ -1,0 +1,17 @@
+{
+  "name": "libreria-adrian",
+  "version": "1.0.0",
+  "description": "Libreria de fundamentos",
+  "main": "index.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "keywords": [
+    "fundamentos",
+    "libreria",
+    "epn",
+    "ejemplo"
+  ],
+  "author": "Adrian Coloma",
+  "license": "ISC"
+}
