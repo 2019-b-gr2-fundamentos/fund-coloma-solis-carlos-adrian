@@ -28,7 +28,21 @@ function compararMatriz(
     console.log(matrizUnoSegundaDimension);
     console.log(matrizDosPrimeraDimension);
     console.log(matrizDosPrimeraDimension);
- return true;
+    const noHayFalsos = matrizUnoPrimeraDimension != false && 
+    matrizUnoSegundaDimension != false &&
+    matrizDosPrimeraDimension != false &&
+    matrizDosSegundaDimension != false;
+    if (noHayFalsos){
+        const tienenIgualesDimensiones = matrizUnoPrimeraDimension == matrizDosPrimeraDimension && 
+        matrizUnoSegundaDimension == matrizDosSegundaDimension 
+        if(tienenIgualesDimensiones){
+            return true;
+        }else{
+            return false;
+        }
+    }else{
+             return false;
+         }
 }
 
 function obtenerPrimeraDimension(matrizUno: number[][]): number | boolean{
@@ -96,4 +110,6 @@ function main(){
         [3,4],
     ];
     compararMatriz(matrizUno, matrizDos);
+    console.log('Resultado: ', compararMatriz(matrizUno, matrizDos))
 }
+main()

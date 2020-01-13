@@ -1,0 +1,6 @@
+var cuadrados = require('libr-calcu/lib/cuadradosperfectos')
+console.log(cuadrados(0,10))
+var factorial = require('libr-calcu/lib/factorial')
+console.log(factorial(3))
+var euler = require('libr-calcu/lib/euler')
+console.log(euler(1))

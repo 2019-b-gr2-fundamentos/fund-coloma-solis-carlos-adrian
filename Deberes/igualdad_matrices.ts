@@ -31,5 +31,3 @@ if (m1 == m2 && n1 == n2){
 }else{
     console.log(iguales)
 }
-
- 

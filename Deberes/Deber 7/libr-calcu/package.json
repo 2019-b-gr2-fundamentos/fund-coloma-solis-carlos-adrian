@@ -1,16 +1,13 @@
 {
-  "name": "libreria-adrian",
-  "version": "1.1.0",
-  "description": "Libreria de fundamentos",
+  "name": "libr-calcu",
+  "version": "1.0.0",
+  "description": "Varias operaciones matemáticas",
   "main": "index.js",
   "scripts": {
     "test": "echo \"Error: no test specified\" && exit 1"
   },
   "keywords": [
-    "fundamentos",
-    "libreria",
-    "epn",
-    "ejemplo"
+    "calculadora"
   ],
   "author": "Adrian Coloma",
   "license": "ISC"

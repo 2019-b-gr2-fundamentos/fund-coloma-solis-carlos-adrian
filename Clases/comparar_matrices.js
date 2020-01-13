@@ -14,7 +14,23 @@ function compararMatriz(matrizUno, matrizDos) {
     console.log(matrizUnoSegundaDimension);
     console.log(matrizDosPrimeraDimension);
     console.log(matrizDosPrimeraDimension);
-    return true;
+    var noHayFalsos = matrizUnoPrimeraDimension != false &&
+        matrizUnoSegundaDimension != false &&
+        matrizDosPrimeraDimension != false &&
+        matrizDosSegundaDimension != false;
+    if (noHayFalsos) {
+        var tienenIgualesDimensiones = matrizUnoPrimeraDimension == matrizDosPrimeraDimension &&
+            matrizUnoSegundaDimension == matrizDosSegundaDimension;
+        if (tienenIgualesDimensiones) {
+            return true;
+        }
+        else {
+            return false;
+        }
+    }
+    else {
+        return false;
+    }
 }
 function obtenerPrimeraDimension(matrizUno) {
     // VALIDACIONES
@@ -78,5 +94,6 @@ function main() {
         [3, 4],
     ];
     compararMatriz(matrizUno, matrizDos);
+    console.log('Resultado: ', compararMatriz(matrizUno, matrizDos));
 }
-main()
+main();
