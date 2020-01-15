@@ -22,7 +22,7 @@ const ejemploEstructura = {
 }
 // Estructura de datos en lenguaje NO TIPADO
 const poliPerro = {
-    nombreCientífico: 'canis lupus familiaris',
+    nombreCientifico: 'canis lupus familiaris',
     nombre: 'Grandote',
     clan: 'Poliperro',
     edad: 10,
