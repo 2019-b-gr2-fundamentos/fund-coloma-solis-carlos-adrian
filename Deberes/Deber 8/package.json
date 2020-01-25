@@ -1,0 +1,15 @@
+{
+  "name": "deber-8",
+  "version": "1.0.0",
+  "description": "",
+  "main": "equipos_de_futbol.js",
+  "dependencies": {
+    "prompts": "^2.3.0"
+  },
+  "devDependencies": {},
+  "scripts": {
+    "start": "(tsc equipos_de_futbol.ts || echo) && node equipos_de_futbol.js"
+  },
+  "author": "",
+  "license": "ISC"
+}
