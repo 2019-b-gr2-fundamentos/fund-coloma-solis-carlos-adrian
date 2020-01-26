@@ -41,26 +41,107 @@ function main() {
     return __awaiter(this, void 0, void 0, function () {
         function agregarEquipos() {
             return __awaiter(this, void 0, void 0, function () {
-                var informacion, decision;
+                var informacion;
                 return __generator(this, function (_a) {
                     switch (_a.label) {
                         case 0: return [4 /*yield*/, prompts(preguntas)];
                         case 1:
                             informacion = _a.sent();
                             arregloEquipos.push(informacion);
+                            decidir();
+                            return [2 /*return*/];
+                    }
+                });
+            });
+        }
+        function editarEquipos() {
+            return __awaiter(this, void 0, void 0, function () {
+                var indice, caracteristica_a_editar, nuevovalor, Equipoelegido;
+                return __generator(this, function (_a) {
+                    switch (_a.label) {
+                        case 0: return [4 /*yield*/, prompts({
+                                type: 'number',
+                                name: 'indice',
+                                message: 'Inserte el indice del equipo que desea editar'
+                            })];
+                        case 1:
+                            indice = _a.sent();
+                            if (!(indice.indice < arregloEquipos.length)) return [3 /*break*/, 6];
                             return [4 /*yield*/, prompts({
                                     type: 'text',
-                                    name: 'eleccion',
-                                    message: 'Insertar nuevo equipo --> 1 \n Salir --> 2'
+                                    name: 'caracteristica',
+                                    message: '¿Qué es lo que desea editar?'
                                 })];
                         case 2:
+                            caracteristica_a_editar = _a.sent();
+                            if (!(caracteristica_a_editar.caracteristica == 'Nombre'
+                                || caracteristica_a_editar.caracteristica == 'Pais'
+                                || caracteristica_a_editar.caracteristica == 'Liga'
+                                || caracteristica_a_editar.caracteristica == 'Presupuesto')) return [3 /*break*/, 4];
+                            return [4 /*yield*/, prompts({
+                                    type: 'text',
+                                    name: 'valor',
+                                    message: '¿Que desea insertar?'
+                                })];
+                        case 3:
+                            nuevovalor = _a.sent();
+                            Equipoelegido = arregloEquipos[indice.indice];
+                            switch (caracteristica_a_editar.caracteristica) {
+                                case 'Nombre':
+                                    Equipoelegido.Nombre = nuevovalor.valor;
+                                    break;
+                                case 'Pais':
+                                    Equipoelegido.Pais = nuevovalor.valor;
+                                    break;
+                                case 'Liga':
+                                    Equipoelegido.Liga = nuevovalor.valor;
+                                    break;
+                                case 'Presupuesto':
+                                    Equipoelegido.Presupuesto = nuevovalor.valor;
+                                    break;
+                            }
+                            decidir();
+                            return [3 /*break*/, 5];
+                        case 4:
+                            console.log('¡La característica insertada no existe!');
+                            editarEquipos();
+                            _a.label = 5;
+                        case 5: return [3 /*break*/, 7];
+                        case 6:
+                            console.log('¡El indice no existe!');
+                            editarEquipos();
+                            _a.label = 7;
+                        case 7: return [2 /*return*/];
+                    }
+                });
+            });
+        }
+        function decidir() {
+            return __awaiter(this, void 0, void 0, function () {
+                var decision;
+                return __generator(this, function (_a) {
+                    switch (_a.label) {
+                        case 0: return [4 /*yield*/, prompts({
+                                type: 'text',
+                                name: 'eleccion',
+                                message: 'Insertar nuevo equipo --> 1 \n Editar equipo --> 2 \n Salir --> 3'
+                            })];
+                        case 1:
                             decision = _a.sent();
                             switch (decision.eleccion) {
                                 case '1':
                                     agregarEquipos();
                                     break;
                                 case '2':
+                                    editarEquipos();
+                                    break;
+                                case '3':
+                                    console.log('Asi han quedado conformados tus equipos:');
                                     console.log(arregloEquipos);
+                                    break;
+                                default:
+                                    console.log('La opción elegida no es válida');
+                                    decidir();
                                     break;
                             }
                             return [2 /*return*/];
