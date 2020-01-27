@@ -6,7 +6,16 @@ import * as prompts from 'prompts';
 async function main(){
     const contenidoArchivo = leerArchivo('./ejemplo.txt')
     console.log('contenidoArchivo', contenidoArchivo)
-    const arregloCargadoDeArchivo = JSON.parse(contenidoArchivo)
+    // PARSEAR = TEXTO -> Estructura en memoria 
+    let arregloCargadoDeArchivo; // undefined
+
+    try{
+        arregloCargadoDeArchivo = JSON.parse(contenidoArchivo);
+    } catch(error){
+        arregloCargadoDeArchivo = [];
+        console.error('Error parseando archivo')
+        //throw new Error("EL ARCHIVO ESTA MAL PARSEADO")
+    }
     const arregloEstudiantes: Estudiante[] = [arregloCargadoDeArchivo];
     const arregloPreguntas =[
         {
@@ -19,6 +28,20 @@ async function main(){
     const respuestaEstudiante = await prompts(arregloPreguntas);
     console.log(respuestaEstudiante);
     let contador = 1;
+
+    // OPERADORES
+    let minimoId = -1;
+    arregloCargadoDeArchivo
+        .forEach( // NO ENVIA NI DEVUELVE NADA // ITERAR
+            function(valorActual){
+                const idActual = valorActual.id;
+                if(idActual > minimoId){
+                    minimoId = idActual
+                }
+            }
+        )
+    minimoId = minimoId + 1
+    contador = minimoId    
     const nuevoRegistroUno = {
         id: contador,
         nombre: respuestaEstudiante.nombre
@@ -73,8 +96,12 @@ async function main(){
                 }
              );
     console.log(estudianteEncontrado)
+    const arregloTexto = JSON.stringify(arregloEstudiantes);
+    console.log(arregloTexto)
+    escribirArchivo(
+        './ejemplo.txt', arregloTexto
+        );
 }
-
 
 
 
@@ -86,4 +113,5 @@ async function main(){
     
     console.log(TextoLeido + nuevoContenido);
     */
+
 main()

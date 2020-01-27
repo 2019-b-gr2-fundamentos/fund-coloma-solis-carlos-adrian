@@ -37,17 +37,25 @@ var __generator = (this && this.__generator) || function (thisArg, body) {
 };
 Object.defineProperty(exports, "__esModule", { value: true });
 var _02_leer_archivo_1 = require("./02-leer-archivo");
+var _03_Escribir_Archivo_1 = require("./03-Escribir-Archivo");
 var prompts = require("prompts");
 // como vamos a trabajar con el pompt que convierte en promesas rabajamos con una funcion asincrona
 function main() {
     return __awaiter(this, void 0, void 0, function () {
-        var contenidoArchivo, arregloCargadoDeArchivo, arregloEstudiantes, arregloPreguntas, respuestaEstudiante, contador, nuevoRegistroUno, respuestaEstudianteDos, nuevoRegistroDos, idABuscar, indiceEncontrado, nombreAEditar, buscar, estudianteEncontrado;
+        var contenidoArchivo, arregloCargadoDeArchivo, arregloEstudiantes, arregloPreguntas, respuestaEstudiante, contador, minimoId, nuevoRegistroUno, respuestaEstudianteDos, nuevoRegistroDos, idABuscar, indiceEncontrado, nombreAEditar, buscar, estudianteEncontrado, arregloTexto;
         return __generator(this, function (_a) {
             switch (_a.label) {
                 case 0:
                     contenidoArchivo = _02_leer_archivo_1.leerArchivo('./ejemplo.txt');
                     console.log('contenidoArchivo', contenidoArchivo);
-                    arregloCargadoDeArchivo = JSON.parse(contenidoArchivo);
+                    try {
+                        arregloCargadoDeArchivo = JSON.parse(contenidoArchivo);
+                    }
+                    catch (error) {
+                        arregloCargadoDeArchivo = [];
+                        console.error('Error parseando archivo');
+                        //throw new Error("EL ARCHIVO ESTA MAL PARSEADO")
+                    }
                     arregloEstudiantes = [arregloCargadoDeArchivo];
                     arregloPreguntas = [
                         {
@@ -61,6 +69,17 @@ function main() {
                     respuestaEstudiante = _a.sent();
                     console.log(respuestaEstudiante);
                     contador = 1;
+                    minimoId = -1;
+                    arregloCargadoDeArchivo
+                        .forEach(// NO ENVIA NI DEVUELVE NADA // ITERAR
+                    function (valorActual) {
+                        var idActual = valorActual.id;
+                        if (idActual > minimoId) {
+                            minimoId = idActual;
+                        }
+                    });
+                    minimoId = minimoId + 1;
+                    contador = minimoId;
                     nuevoRegistroUno = {
                         id: contador,
                         nombre: respuestaEstudiante.nombre
@@ -116,6 +135,9 @@ function main() {
                         return valorActual.nombre == buscar.nombre;
                     });
                     console.log(estudianteEncontrado);
+                    arregloTexto = JSON.stringify(arregloEstudiantes);
+                    console.log(arregloTexto);
+                    _03_Escribir_Archivo_1.escribirArchivo('./ejemplo.txt', arregloTexto);
                     return [2 /*return*/];
             }
         });
