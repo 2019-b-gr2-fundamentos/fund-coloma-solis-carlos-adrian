@@ -1,7 +1,9 @@
 import * as prompts from './node_modules/prompts'
 import {Equipo} from './interfaces/interfaz_equipo'
+import { leerArchivo } from './02-leer-archivo'
+import { escribirArchivo } from '../../Clases/Introduccion/07-archivos/03-Escribir-Archivo'
 async function main(){
-    const arregloEquipos: Equipo[]= []
+    const arregloEquipos: Equipo[]= [JSON.parse(leerArchivo('./equipos.txt'))]
     const preguntas = [
         {
             type: 'text',
@@ -78,11 +80,26 @@ async function main(){
             editarEquipos()
         }    
     }
+    async function eliminar(){
+        let indice_a_eliminar = await prompts({
+            type: 'text',
+            name: 'Indice',
+            message: 'Inserte el índice del equipo que quiere eliminar'
+        })
+        if(indice_a_eliminar.Indice < arregloEquipos.length){
+            arregloEquipos.splice(indice_a_eliminar.Indice)
+            console.log('El equipo del índice insertado ha sido eliminado')
+            decidir()
+        }else{
+            console.log('¡El índice insertado no existe!')
+            eliminar()
+        }
+    }
     async function decidir(){
         let decision = await prompts({
             type: 'text',
             name: 'eleccion',
-            message: 'Insertar nuevo equipo --> 1 \n Editar equipo --> 2 \n Salir --> 3'
+            message: 'Insertar nuevo equipo --> 1 \n Editar equipo --> 2 \n Eliminar equipo --> 3 \n Salir --> 4'
         })
         switch(decision.eleccion){    
             case '1':
@@ -92,8 +109,12 @@ async function main(){
                 editarEquipos()
                 break;
             case '3':
+                 eliminar()  
+                 break; 
+            case '4':
                 console.log('Asi han quedado conformados tus equipos:')
-                console.log(arregloEquipos)  
+                console.log(arregloEquipos)
+                escribirArchivo('./equipos.txt',JSON.stringify(arregloEquipos))  
                 break;
             default:
                 console.log('La opción elegida no es válida')

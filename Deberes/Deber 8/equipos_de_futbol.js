@@ -37,6 +37,8 @@ var __generator = (this && this.__generator) || function (thisArg, body) {
 };
 exports.__esModule = true;
 var prompts = require("./node_modules/prompts");
+var _02_leer_archivo_1 = require("./02-leer-archivo");
+var _03_Escribir_Archivo_1 = require("../../Clases/Introduccion/07-archivos/03-Escribir-Archivo");
 function main() {
     return __awaiter(this, void 0, void 0, function () {
         function agregarEquipos() {
@@ -116,6 +118,32 @@ function main() {
                 });
             });
         }
+        function eliminar() {
+            return __awaiter(this, void 0, void 0, function () {
+                var indice_a_eliminar;
+                return __generator(this, function (_a) {
+                    switch (_a.label) {
+                        case 0: return [4 /*yield*/, prompts({
+                                type: 'text',
+                                name: 'Indice',
+                                message: 'Inserte el índice del equipo que quiere eliminar'
+                            })];
+                        case 1:
+                            indice_a_eliminar = _a.sent();
+                            if (indice_a_eliminar.Indice < arregloEquipos.length) {
+                                arregloEquipos.splice(indice_a_eliminar.Indice);
+                                console.log('El equipo del índice insertado ha sido eliminado');
+                                decidir();
+                            }
+                            else {
+                                console.log('¡El índice insertado no existe!');
+                                eliminar();
+                            }
+                            return [2 /*return*/];
+                    }
+                });
+            });
+        }
         function decidir() {
             return __awaiter(this, void 0, void 0, function () {
                 var decision;
@@ -124,7 +152,7 @@ function main() {
                         case 0: return [4 /*yield*/, prompts({
                                 type: 'text',
                                 name: 'eleccion',
-                                message: 'Insertar nuevo equipo --> 1 \n Editar equipo --> 2 \n Salir --> 3'
+                                message: 'Insertar nuevo equipo --> 1 \n Editar equipo --> 2 \n Eliminar equipo --> 3 \n Salir --> 4'
                             })];
                         case 1:
                             decision = _a.sent();
@@ -136,8 +164,12 @@ function main() {
                                     editarEquipos();
                                     break;
                                 case '3':
+                                    eliminar();
+                                    break;
+                                case '4':
                                     console.log('Asi han quedado conformados tus equipos:');
                                     console.log(arregloEquipos);
+                                    _03_Escribir_Archivo_1.escribirArchivo('./equipos.txt', JSON.stringify(arregloEquipos));
                                     break;
                                 default:
                                     console.log('La opción elegida no es válida');
@@ -151,7 +183,7 @@ function main() {
         }
         var arregloEquipos, preguntas;
         return __generator(this, function (_a) {
-            arregloEquipos = [];
+            arregloEquipos = [JSON.parse(_02_leer_archivo_1.leerArchivo('./equipos.txt'))];
             preguntas = [
                 {
                     type: 'text',

@@ -1,0 +1,1 @@
+[[{"Nombre":"Madrid","Pais":"España","Liga":"BBVA","Presupuesto":"1000"},{"Nombre":"Barcelona","Pais":"España","Liga":"BBVA","Presupuesto":1000}],{"Nombre":"Liga de Quito","Pais":"Ecuador","Liga":"Primera División","Presupuesto":10000}]
