@@ -47,4 +47,5 @@ const respuestaEvery = every(arregloEstudiantes,
 console.log('Reduce: ',resultadoReduce)
 console.log('Map: ',arregloMapeado)    
 console.log('Every: ', respuestaEvery)
-console.log('Some: ', respuestaSome)    
+console.log('Some: ', respuestaSome)   
+console.log(arregloEstudiantes) 

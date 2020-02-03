@@ -21,13 +21,7 @@ var resultadoReduce = reduce_1.reduce(arregloEstudiantes, function (acumulador, 
     return calculo;
 }, 0);
 var arregloMapeado = map_1.map(arregloEstudiantes, function (valorActual, i, arreglo) {
-    var nuevoObjeto = {
-        id: valorActual.id,
-        nombre: valorActual.nombre,
-        // nota: valorActual.nota,
-        nota20: valorActual.nota * 2
-    };
-    return nuevoObjeto;
+    delete arregloEstudiantes.valorActual;
 });
 var respuestaEvery = every_1.every(arregloEstudiantes, function (valorActual) {
     return valorActual.nota >= 4;
@@ -39,3 +33,4 @@ console.log('Reduce: ', resultadoReduce);
 console.log('Map: ', arregloMapeado);
 console.log('Every: ', respuestaEvery);
 console.log('Some: ', respuestaSome);
+console.log(arregloEstudiantes);
