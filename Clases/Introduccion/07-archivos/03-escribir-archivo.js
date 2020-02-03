@@ -1,5 +1,5 @@
 "use strict";
-Object.defineProperty(exports, "__esModule", { value: true });
+exports.__esModule = true;
 var fs = require("fs");
 function escribirArchivo(path, contenido) {
     fs.writeFileSync(path, // PATH

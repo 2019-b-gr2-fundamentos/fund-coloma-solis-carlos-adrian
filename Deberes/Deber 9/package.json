@@ -1,0 +1,11 @@
+{
+  "name": "deber-9",
+  "version": "1.0.0",
+  "description": "",
+  "main": "every.js",
+  "scripts": {
+    "start": "(tsc main.ts || echo) && node main.js"
+  },
+  "author": "",
+  "license": "ISC"
+}
